@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.CollationElementIterator;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,14 +28,13 @@ public class MainActivity extends AppCompatActivity {
        toast.show();
     }
 
-    public void countUp(View view) {
-        int nCount = 0;
-        nCount++;
+    CollationElementIterator nshowCount = null;
 
-        CollationElementIterator nshowCount = null;
-        if (nShowCount!= null) {
-            assert nshowCount != null;
-            nshowCount.setText(Integer.toString( nCount ));
-        }
-    }
+
+
+        public void countUp(View view) {
+           nCount++;
+           if(nShowCount != null)
+               nShowCount.setText(Integer.toString(nCount));
+}
 }
