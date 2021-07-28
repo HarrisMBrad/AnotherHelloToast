@@ -43,6 +43,5 @@ jobs:
 
       # run tests!
       - run: gradle test
-           name: Print The Current Time
-           command: date
+           
       
