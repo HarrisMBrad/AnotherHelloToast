@@ -23,6 +23,9 @@ jobs:
 
     steps:
       - checkout
+      - run: 
+            name: build dependencies
+            command: bundle install
 
       # Download and cache dependencies
       - restore_cache:
@@ -40,3 +43,6 @@ jobs:
 
       # run tests!
       - run: gradle test
+           name: Print The Current Time
+           command: date
+      
