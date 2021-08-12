@@ -16,7 +16,27 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      - run: 
+            name: build dependencies
+            command: bundle install
 
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: gradle dependencies
+
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      # run tests!
+      - run: gradle test
+           
       # The next step will run the unit tests
       - android/run-tests:
           test-command: ./gradlew lint testDebug --continue
@@ -40,3 +60,4 @@ workflows:
   sample: 
     jobs:
       - build-and-test
+
