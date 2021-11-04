@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showToast(View view) {
-       Toast toast = Toast.makeText( this, "Hello Soggy Toast!",
+       Toast toast = Toast.makeText( this, "Hello Crispy Toast!",
                Toast.LENGTH_SHORT );
        toast.show();
     }
